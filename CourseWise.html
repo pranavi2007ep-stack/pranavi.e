@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>CourseWise – the best courses for the time you have</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f4f8fb;--card:#fff;--ink:#0b1f3f;--mute:#4b5b78;--blue:#1d4ed8;--teal:#0f766e;--line:#dce5ef;--soft:#e6eefc;--tsoft:#d8f3ef;--bad:#b42318;color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*:before,*:after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 'Bricolage Grotesque',system-ui,-apple-system,'Segoe UI',sans-serif}
+h1,h2,h3{line-height:1.15;margin:0 0 .5em;letter-spacing:-.01em}
+h1{font-size:clamp(2rem,5vw,3.4rem);font-weight:800}h2{font-size:1.6rem;font-weight:800}h3{font-size:1.1rem;font-weight:600}
+p{margin:0 0 1em}.mute{color:var(--mute)}
+:focus-visible{outline:3px solid var(--blue);outline-offset:2px;border-radius:6px}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:rgba(255,255,255,.94);border-bottom:1px solid var(--line);backdrop-filter:blur(6px)}
+.bar{max-width:1100px;margin:auto;display:flex;align-items:center;gap:12px;padding:8px 16px}
+.brand{font-weight:800;font-size:1.25rem;background:none;border:0;color:var(--ink);cursor:pointer;padding:6px 4px;white-space:nowrap}.brand b{color:var(--teal)}
+nav{display:flex;gap:4px;overflow-x:auto;flex:1;justify-content:flex-end;scrollbar-width:none}
+nav button{font:inherit;font-weight:600;border:0;background:none;color:var(--mute);padding:8px 12px;border-radius:999px;cursor:pointer;white-space:nowrap}
+nav button[aria-current=page]{background:var(--soft);color:var(--blue)}nav button:hover{color:var(--ink)}
+main{max-width:1100px;margin:auto;padding:24px 16px 56px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:20px;box-shadow:0 2px 10px rgba(11,31,63,.06)}
+.btn{font:inherit;font-weight:600;border-radius:12px;border:2px solid var(--blue);background:var(--blue);color:#fff;padding:11px 20px;cursor:pointer;min-height:44px}
+.btn:hover{background:#1e40af}.btn.alt{background:#fff;color:var(--blue)}.btn.alt:hover{background:var(--soft)}.btn.sm{padding:6px 14px;min-height:36px}
+.btn.big{font-size:1.1rem;padding:14px 28px}
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:32px;align-items:center;padding:24px 0 40px}
+.grid{display:grid;gap:16px}.g3{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}.g2{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+.chip{display:inline-block;background:var(--soft);color:#1e3a8a;border-radius:999px;padding:2px 10px;font-size:.82rem;font-weight:600;margin:0 4px 4px 0}.chip.t{background:var(--tsoft);color:#115e59}
+.seg{display:flex;height:22px;border-radius:999px;background:repeating-linear-gradient(45deg,#e8eef6 0 6px,#f4f8fb 6px 12px);border:1px solid var(--line);overflow:hidden}
+.seg i{display:block;border-right:2px solid #fff}.legend{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:.88rem;margin-top:8px}.legend span:before{content:"";display:inline-block;width:10px;height:10px;border-radius:3px;background:var(--c);margin-right:6px}
+label,.lbl{display:block;font-weight:600;margin-bottom:4px}
+input,select{font:inherit;width:100%;padding:10px 12px;border:1.5px solid #b8c5d8;border-radius:10px;background:#fff;color:var(--ink);min-height:44px}
+.hint{font-size:.88rem;color:var(--mute);margin-top:4px}.err{color:var(--bad);font-size:.9rem;min-height:1.2em;margin-top:2px}
+fieldset{border:0;padding:0;margin:0 0 16px}legend{font-weight:600;padding:0;margin-bottom:6px}
+.radio{display:flex;gap:10px;flex-wrap:wrap}.radio label{display:flex;align-items:center;gap:8px;border:1.5px solid #b8c5d8;border-radius:10px;padding:10px 14px;margin:0;cursor:pointer;font-weight:600}
+.radio input{width:auto;min-height:0}.radio label:has(input:checked){border-color:var(--blue);background:var(--soft)}
+.form{display:grid;grid-template-columns:1fr 1fr;gap:16px 20px}.form .full{grid-column:1/-1}
+.tools{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:12px;margin-bottom:16px}
+.cc{display:flex;flex-direction:column;gap:8px}.cc .meta{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:.9rem;color:var(--mute)}
+.cc .price{font-weight:800;font-size:1.05rem}.cc .row{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-top:auto}
+.score{font-weight:800;color:var(--teal)}
+.tbl{overflow-x:auto}table{border-collapse:collapse;width:100%;min-width:560px}th,td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}th{font-weight:600;color:var(--mute);width:150px}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:16px 0}.tabs button{font:inherit;font-weight:600;border:1.5px solid #b8c5d8;background:#fff;border-radius:999px;padding:8px 16px;cursor:pointer;min-height:40px}
+.tabs button[aria-pressed=true]{background:var(--ink);border-color:var(--ink);color:#fff}
+.stats{display:flex;gap:24px;flex-wrap:wrap;margin:14px 0 4px}.stats b{display:block;font-size:1.5rem;font-weight:800}
+.empty{text-align:center;padding:36px 16px}.note{background:var(--tsoft);color:#0b4f49;border-radius:12px;padding:10px 14px;font-size:.92rem}
+ul.why{margin:6px 0 0;padding-left:20px}.steps{counter-reset:s;list-style:none;padding:0}.steps li{counter-increment:s;position:relative;padding-left:44px}
+.steps li:before{content:counter(s);position:absolute;left:0;top:0;width:32px;height:32px;border-radius:50%;background:var(--blue);color:#fff;font-weight:800;display:grid;place-items:center}
+section.blk{margin-top:44px}footer{max-width:1100px;margin:auto;padding:0 16px 32px;color:var(--mute);font-size:.88rem}
+.sr{position:absolute;left:-9999px}.stk{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+@media(max-width:760px){.hero,.form,.tools{grid-template-columns:1fr}h2{font-size:1.4rem}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style></head><body>
+<header><div class="bar"><button class="brand" data-go="home">Course<b>Wise</b></button>
+<nav aria-label="Main"><button data-go="home">Home</button><button data-go="prefs">Preferences</button><button data-go="catalog">Catalog</button><button data-go="compare" id="nCmp">Compare</button><button data-go="plan">My plan</button></nav></div></header>
+<main id="app"></main>
+<footer>CourseWise is a hackathon demo. Courses, providers, prices and ratings are sample data, not live listings. Everything you enter stays in this browser; nothing is sent to a server.</footer>
+<div class="sr" role="status" aria-live="polite" id="live"></div>
+<script>
+const $=s=>document.querySelector(s),esc=s=>String(s).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+const LV=['','Beginner','Intermediate','Advanced'],GOALS={da:'Data analytics',ai:'AI & machine learning',web:'Web development',cyber:'Cybersecurity',ux:'UI/UX design',comm:'Communication',pm:'Project management'};
+const COL=['#1d4ed8','#0f766e','#7c3aed','#b45309','#be185d','#0369a1'];
+const C=(id,title,provider,area,weeks,effort,credits,level,cost,rating,format,skills,rel)=>({id,title,provider,area,weeks,effort,credits,level,cost,rating,format,skills,rel});
+const COURSES=[
+C(1,'Python for Data Analysis','Northfield Online','Data analytics',6,4,2,2,1499,4.7,'Self-paced',['Python','Pandas','Data cleaning','SQL basics'],{da:1,ai:.6}),
+C(2,'SQL and Dashboards in Practice','Brightpath Academy','Data analytics',5,3,1,1,0,4.5,'Project-based',['SQL','Power BI','Data storytelling'],{da:1,pm:.3}),
+C(3,'Statistics for Decision Making','Lumen Institute','Data analytics',8,5,3,2,2999,4.4,'Live cohort',['Probability','Hypothesis testing','A/B testing'],{da:.8,ai:.6}),
+C(4,'Machine Learning Foundations','Northfield Online','AI & machine learning',10,6,4,2,4999,4.8,'Live cohort',['Supervised learning','scikit-learn','Model evaluation','Python'],{ai:1,da:.6}),
+C(5,'Deep Learning Studio','CodeCrest','AI & machine learning',8,8,4,3,5999,4.6,'Project-based',['Neural networks','PyTorch','CNNs'],{ai:1,da:.3}),
+C(6,'Responsible AI and Prompting Basics','OpenLearn Lab','AI & machine learning',3,2,1,1,0,4.3,'Self-paced',['Prompt design','AI ethics','Tool evaluation'],{ai:.7,comm:.3,da:.3,web:.3}),
+C(7,'Full-Stack Web Bootcamp Lite','CodeCrest','Web development',10,7,4,2,3999,4.6,'Project-based',['HTML/CSS','JavaScript','React','REST APIs'],{web:1,ux:.4}),
+C(8,'HTML, CSS and Responsive Design','OpenLearn Lab','Web development',4,3,1,1,0,4.5,'Self-paced',['HTML5','CSS Grid','Web accessibility'],{web:.9,ux:.7}),
+C(9,'Cybersecurity Essentials','SkillBridge','Cybersecurity',6,4,2,1,1999,4.6,'Self-paced',['Threat modelling','Networking basics','Access security'],{cyber:1,web:.3}),
+C(10,'Ethical Hacking Lab','SkillBridge','Cybersecurity',8,6,3,3,4499,4.7,'Live cohort',['Pen-testing basics','Linux','Vulnerability scanning'],{cyber:1}),
+C(11,'UI/UX Design Fundamentals','Brightpath Academy','UI/UX design',6,4,2,1,1799,4.6,'Project-based',['Figma','User research','Wireframing'],{ux:1,web:.5}),
+C(12,'Public Speaking for Technical Talks','Lumen Institute','Communication',4,3,1,1,0,4.4,'Live cohort',['Storytelling','Slide design','Handling Q&A'],{comm:1,pm:.5}),
+C(13,'Project Management Essentials','Lumen Institute','Project management',6,4,2,1,2499,4.5,'Self-paced',['Agile','Scrum','Risk planning','Roadmaps'],{pm:1,comm:.4}),
+C(14,'Professional Writing for Tech Careers','OpenLearn Lab','Communication',4,2,1,1,499,4.2,'Self-paced',['Email writing','Resumes','Documentation'],{comm:.9,pm:.4,web:.2})];
+const W={balanced:{rel:35,diff:15,rating:15,skills:15,cost:10,time:10},career:{rel:55,diff:5,rating:10,skills:20,cost:5,time:5},beginner:{rel:20,diff:40,rating:15,skills:10,cost:5,time:10},light:{rel:35,diff:15,rating:15,skills:15,cost:10,time:10}};
+const PL={balanced:['Balanced best fit','Highest overall score within your limit.'],career:['Best career value','Weights goal relevance and skills gained most, and only considers strongly relevant courses.'],beginner:['Most beginner-friendly','Only beginner-level courses, ranked by overall fit.'],light:['Lowest time commitment','Uses at most about 60% of your limit.']};
+let st={prefs:null,sel:[],plan:'balanced',only:false,view:'home',q:'',area:'',lvl:'',sort:'fit'},saved=[];
+try{const s=JSON.parse(localStorage.getItem('cw_state')||'null');if(s){st.prefs=s.prefs;st.sel=s.sel||[]}saved=JSON.parse(localStorage.getItem('cw_plans')||'[]')}catch(e){}
+const persist=()=>{try{localStorage.setItem('cw_state',JSON.stringify({prefs:st.prefs,sel:st.sel}));localStorage.setItem('cw_plans',JSON.stringify(saved))}catch(e){}};
+const unit=p=>p.mode==='hours'?'h/week':'credits',money=n=>n?'₹'+n.toLocaleString('en-IN'):'Free';
+const clamp=(x,a,b)=>Math.max(a,Math.min(b,x));
+function score(c,p,w){const s=LV.indexOf(p.level),d=c.level-s,f={rel:c.rel[p.goal]||0,diff:d>=0?[1,.45,.1][d]:[1,.7,.4][-d],rating:clamp((c.rating-3.8)/1.2,0,1),skills:Math.min(c.skills.length,4)/4,cost:1-Math.min(c.cost/(p.budget||6000),1),time:clamp(1-(c.effort-2)/6,0,1)};
+ return{f,total:Object.keys(w).reduce((a,k)=>a+w[k]*f[k],0)}}
+const wt=(c,p)=>p.mode==='hours'?c.effort:c.credits;
+function buildPlan(p,key,ids){const w=W[key],cap=key==='light'?Math.max(1,Math.floor(p.limit*.6)):p.limit;
+ const items=COURSES.filter(c=>(!ids||ids.includes(c.id))&&(!p.budget||c.cost<=p.budget)&&(!p.maxWeeks||c.weeks<=p.maxWeeks)&&(p.format==='Any'||c.format===p.format)&&(c.rel[p.goal]||0)>=(key==='career'?.6:.3)&&!(key==='beginner'&&c.level>1)).map(c=>({c,sc:score(c,p,w),wt:wt(c,p)})).filter(i=>i.wt<=cap);
+ const n=items.length,dp=Array.from({length:n+1},()=>new Array(cap+1).fill(0));
+ for(let i=1;i<=n;i++){const v=Math.round(items[i-1].sc.total*10),t=items[i-1].wt;for(let x=0;x<=cap;x++){dp[i][x]=dp[i-1][x];if(t<=x)dp[i][x]=Math.max(dp[i][x],v+dp[i-1][x-t])}}
+ const pick=[];let x=cap;for(let i=n;i>=1;i--)if(dp[i][x]!==dp[i-1][x]){pick.push(items[i-1]);x-=items[i-1].wt}
+ pick.sort((a,b)=>b.sc.total-a.sc.total);
+ return{pick,cap,used:pick.reduce((a,i)=>a+i.wt,0),cost:pick.reduce((a,i)=>a+i.c.cost,0),avg:pick.length?pick.reduce((a,i)=>a+i.sc.total,0)/pick.length:0,pool:n}}
+function why(i,p){const{c,sc}=i,s=LV.indexOf(p.level),f=sc.f;return[f.rel>=.8?'Directly targets '+GOALS[p.goal].toLowerCase():'Related to '+GOALS[p.goal].toLowerCase(),
+ c.level===s?'Matches your '+LV[s].toLowerCase()+' level':c.level<s?'A lower-level refresher':'A stretch above your level',
+ (c.rating>=4.6?'Highly rated ('+c.rating+')':'Rated '+c.rating)+' and '+(c.cost?'costs '+money(c.cost):'free'),'Builds '+c.skills.slice(0,3).join(', '),'Uses '+i.wt+' '+unit(p)+' of your limit']}
+function bar(plan,p){const segs=plan.pick.map((i,k)=>`<i style="width:${i.wt/p.limit*100}%;background:${COL[k%6]}" title="${esc(i.c.title)}: ${i.wt} ${unit(p)}"></i>`).join('');
+ return`<div class="seg" role="progressbar" aria-valuemin="0" aria-valuemax="${p.limit}" aria-valuenow="${plan.used}" aria-label="Time used">${segs}</div><div class="legend">${plan.pick.map((i,k)=>`<span style="--c:${COL[k%6]}">${esc(i.c.title)} (${i.wt})</span>`).join('')}</div>`}
+const demo={mode:'hours',limit:10,goal:'da',level:'Intermediate',format:'Any',maxWeeks:0,budget:0};
+function fitScore(c){return st.prefs?Math.round(score(c,st.prefs,W.balanced).total):null}
+const V={};
+V.home=()=>{const pl=buildPlan(demo,'balanced');return`<section class="hero"><div><h1>Choose courses that fit your time, not just your curiosity.</h1>
+<p class="mute" style="font-size:1.15rem">CourseWise finds the combination of courses with the highest personal fit score that stays inside your weekly hours or credit limit.</p>
+<button class="btn big" data-go="prefs">Find my courses</button></div>
+<div class="card" aria-label="Sample recommendation"><h3>Sample plan: data analytics, 10 h/week, intermediate</h3>${bar(pl,demo)}
+<p class="hint">${pl.used} of 10 h/week used, ${10-pl.used} left. Computed live by the same logic you will use.</p></div></section>
+<section class="grid g3"><div class="card"><h3>The problem</h3><p class="mute">There are hundreds of courses and only so many hours. Picking by gut feel often leaves time unused or overloads your week.</p></div>
+<div class="card"><h3>The approach</h3><p class="mute">Each course gets a transparent fit score. A 0/1 knapsack search then picks the set with the best total score that fits your limit.</p></div>
+<div class="card"><h3>What you get</h3><p class="mute">A plan with a plain-language reason for every course, plus alternatives for career value, beginners, or a lighter load.</p></div></section>
+<section class="blk"><h2>How it works</h2><ol class="steps grid g3"><li><h3>Tell us your limits</h3><p class="mute">Hours per week or credits, your goal and level.</p></li><li><h3>Browse and compare</h3><p class="mute">Search the catalog and compare courses side by side.</p></li><li><h3>Get your plan</h3><p class="mute">See the best combination and switch between alternatives. Save or copy it.</p></li></ol></section>
+<section class="blk card"><h2>How recommendations work</h2><p class="mute">Each course is scored from 0 to 100 using these factors (balanced plan weights). Courses with weak relevance to your goal are left out.</p>
+<div class="stk">${[['Goal relevance',35],['Difficulty fit',15],['Rating',15],['Skills gained',15],['Cost',10],['Time required',10]].map(a=>`<span class="chip">${a[0]}: ${a[1]}</span>`).join('')}</div>
+<p class="hint" style="margin-top:12px">Scores estimate fit using sample data. They do not predict grades, jobs or any outcome. Alternative plans change the weights.</p></section>`};
+V.prefs=()=>{const p=st.prefs||{mode:'hours',limit:'',goal:'',level:'Beginner',format:'Any',maxWeeks:0,budget:''};const o=(a,v)=>a.map(x=>`<option${x[0]==v?' selected':''} value="${x[0]}">${x[1]}</option>`).join('');
+return`<h1 tabindex="-1" style="font-size:2rem">Your preferences</h1><form class="card form" id="pf" novalidate>
+<fieldset class="full"><legend>Which limit are you using?</legend><div class="radio"><label><input type="radio" name="mode" value="hours"${p.mode==='hours'?' checked':''}>Study hours per week</label><label><input type="radio" name="mode" value="credits"${p.mode==='credits'?' checked':''}>Credit hours</label></div></fieldset>
+<div><label for="limit" id="limL"></label><input id="limit" type="number" inputmode="numeric" step="1" value="${esc(p.limit)}" aria-describedby="limE limH"><div class="hint" id="limH"></div><div class="err" id="limE"></div></div>
+<div><label for="goal">Career goal or interest</label><select id="goal" aria-describedby="goalE"><option value="">Choose one</option>${o(Object.entries(GOALS),p.goal)}</select><div class="err" id="goalE"></div></div>
+<div><label for="level">Current skill level</label><select id="level">${o(LV.slice(1).map(x=>[x,x]),p.level)}</select></div>
+<div><label for="format">Preferred format</label><select id="format">${o(['Any','Self-paced','Live cohort','Project-based'].map(x=>[x,x]),p.format)}</select></div>
+<div><label for="maxWeeks">Longest course duration</label><select id="maxWeeks">${o([[0,'Any length'],[4,'Up to 4 weeks'],[6,'Up to 6 weeks'],[8,'Up to 8 weeks']],p.maxWeeks)}</select></div>
+<div><label for="budget">Max price per course in ₹ (optional)</label><input id="budget" type="number" min="0" step="100" value="${esc(p.budget||'')}" aria-describedby="budE"><div class="err" id="budE"></div></div>
+<div class="full"><button class="btn big" type="submit">See my recommendations</button></div></form>`};
+function syncLim(){const m=document.querySelector('input[name=mode]:checked').value;$('#limL').textContent=m==='hours'?'Study hours available per week':'Credit hours available';$('#limH').textContent=m==='hours'?'Whole hours, 1 to 40.':'Whole credits, 1 to 24. Credit values per course are estimates in this sample data.'}
+function bindPrefs(){syncLim();document.querySelectorAll('input[name=mode]').forEach(r=>r.onchange=syncLim);
+ $('#pf').onsubmit=e=>{e.preventDefault();const m=document.querySelector('input[name=mode]:checked').value,mx=m==='hours'?40:24,lim=Number($('#limit').value),b=$('#budget').value,errs={};
+ if(!$('#limit').value||!Number.isInteger(lim)||lim<1||lim>mx)errs.lim=`Enter a whole number from 1 to ${mx}.`;
+ if(!$('#goal').value)errs.goal='Choose a goal so we can rank courses for you.';
+ if(b!==''&&(Number(b)<0||isNaN(Number(b))))errs.bud='Enter 0 or a positive amount, or leave blank.';
+ [['lim','limit','limE'],['goal','goal','goalE'],['bud','budget','budE']].forEach(([k,id,eid])=>{$('#'+eid).textContent=errs[k]||'';$('#'+id).setAttribute('aria-invalid',!!errs[k])});
+ if(Object.keys(errs).length){$('#'+(errs.lim?'limit':errs.goal?'goal':'budget')).focus();return}
+ st.prefs={mode:m,limit:lim,goal:$('#goal').value,level:$('#level').value,format:$('#format').value,maxWeeks:Number($('#maxWeeks').value),budget:b===''?0:Number(b)};persist();go('plan')}}
+function card(c){const p=st.prefs,on=st.sel.includes(c.id),f=fitScore(c),rl=p?(c.rel[p.goal]||0):null;
+return`<article class="card cc"><div><span class="chip">${esc(c.area)}</span><span class="chip t">${LV[c.level]}</span></div><h3>${esc(c.title)}</h3><div class="mute">${esc(c.provider)} · ${esc(c.format)}</div>
+<div class="meta"><span>${c.weeks} weeks</span><span>${c.effort} h/week</span><span>${c.credits} credit${c.credits>1?'s':''}</span><span>Rated ${c.rating}</span></div>
+<div>${c.skills.map(s=>`<span class="chip">${esc(s)}</span>`).join('')}</div>
+${p?`<div class="mute">Relevance to your goal: <b>${rl>=.8?'High':rl>=.4?'Medium':'Low'}</b> · <span class="score">Fit ${f}</span></div>`:'<div class="hint">Set preferences to see fit scores.</div>'}
+<div class="row"><span class="price">${money(c.cost)}</span><button class="btn alt sm" data-cmp="${c.id}" aria-pressed="${on}">${on?'Remove from compare':'Add to compare'}</button></div></article>`}
+V.catalog=()=>`<h1 tabindex="-1" style="font-size:2rem">Course catalog</h1><div class="tools"><div><label for="q" class="sr">Search courses</label><input id="q" type="search" placeholder="Search by title, skill or provider" value="${esc(st.q)}"></div>
+<div><label for="area" class="sr">Area</label><select id="area"><option value="">All areas</option>${[...new Set(COURSES.map(c=>c.area))].map(a=>`<option${a==st.area?' selected':''}>${a}</option>`).join('')}</select></div>
+<div><label for="lvl" class="sr">Level</label><select id="lvl"><option value="">All levels</option>${[1,2,3].map(l=>`<option value="${l}"${l==st.lvl?' selected':''}>${LV[l]}</option>`).join('')}</select></div>
+<div><label for="sort" class="sr">Sort</label><select id="sort">${[['fit','Best fit'],['rating','Highest rated'],['cost','Lowest cost'],['effort','Least weekly effort']].map(a=>`<option value="${a[0]}"${a[0]==st.sort?' selected':''}>${a[1]}</option>`).join('')}</select></div></div><div id="cl" class="grid g3"></div>`;
+function list(){const q=st.q.toLowerCase();let a=COURSES.filter(c=>(!q||(c.title+c.provider+c.skills.join(' ')+c.area).toLowerCase().includes(q))&&(!st.area||c.area===st.area)&&(!st.lvl||c.level==st.lvl));
+ const k={fit:c=>-(fitScore(c)||0),rating:c=>-c.rating,cost:c=>c.cost,effort:c=>c.effort}[st.sort];a.sort((x,y)=>k(x)-k(y));
+ $('#cl').innerHTML=a.length?a.map(card).join(''):`<div class="card empty" style="grid-column:1/-1"><h3>No courses match</h3><p class="mute">Try a different search or clear the filters.</p><button class="btn alt" id="clr">Clear filters</button></div>`;
+ const b=$('#clr');if(b)b.onclick=()=>{st.q=st.area=st.lvl='';render()}}
+function bindCatalog(){[['q','q'],['area','area'],['lvl','lvl'],['sort','sort']].forEach(([id,k])=>$('#'+id).oninput=e=>{st[k]=e.target.value;list()});list()}
+V.compare=()=>{const cs=COURSES.filter(c=>st.sel.includes(c.id));if(!cs.length)return`<h1 tabindex="-1" style="font-size:2rem">Compare courses</h1><div class="card empty"><h3>Nothing to compare yet</h3><p class="mute">Add two or more courses from the catalog to see them side by side.</p><button class="btn" data-go="catalog">Browse the catalog</button></div>`;
+ const p=st.prefs,r=(l,f)=>`<tr><th scope="row">${l}</th>${cs.map(c=>`<td>${f(c)}</td>`).join('')}</tr>`;
+ return`<h1 tabindex="-1" style="font-size:2rem">Compare courses</h1><div class="card tbl"><table><thead><tr><td></td>${cs.map(c=>`<th scope="col" style="width:auto;color:var(--ink)">${esc(c.title)}<br><button class="btn alt sm" data-cmp="${c.id}" style="margin-top:6px">Remove</button></th>`).join('')}</tr></thead><tbody>
+${r('Provider',c=>esc(c.provider))}${r('Time',c=>`${c.effort} h/week for ${c.weeks} weeks (${c.effort*c.weeks} h total)<br>${c.credits} credit${c.credits>1?'s':''}`)}${r('Level',c=>LV[c.level])}${r('Skills',c=>c.skills.map(s=>`<span class="chip">${esc(s)}</span>`).join(''))}${r('Cost',c=>money(c.cost))}${r('Rating',c=>c.rating)}
+${p?r('Relevance to goal',c=>{const v=c.rel[p.goal]||0;return v>=.8?'High':v>=.4?'Medium':'Low'})+r('Fit score',c=>'<b class="score">'+fitScore(c)+'</b>'):''}</tbody></table></div>
+<div class="stk"><button class="btn" data-act="useSel">Build a plan from these courses</button><button class="btn alt" data-go="catalog">Add more</button></div>${p?'':'<p class="hint">Set your preferences to see relevance and fit scores.</p>'}`};
+function summary(p,plan){const l=PL[st.plan][0];return`CourseWise plan: ${l}\nGoal: ${GOALS[p.goal]} (${p.level})\nUsing ${plan.used} of ${p.limit} ${unit(p)}\nTotal cost: ${money(plan.cost)}\n`+plan.pick.map((i,k)=>`${k+1}. ${i.c.title} – ${i.c.provider}, ${i.wt} ${unit(p)}, ${i.c.weeks} weeks`).join('\n')+'\n(Sample data from the CourseWise demo)'}
+V.plan=()=>{const p=st.prefs;let h='<h1 tabindex="-1" style="font-size:2rem">Your course plan</h1>';
+ if(!p)return h+`<div class="card empty"><h3>Tell us your limits first</h3><p class="mute">We need your available time and goal to build a plan.</p><button class="btn" data-go="prefs">Enter preferences</button></div>`;
+ const ids=st.only&&st.sel.length?st.sel:null,plan=buildPlan(p,st.plan,ids),u=unit(p);
+ h+=`<div class="tabs" role="group" aria-label="Plan type">${Object.keys(PL).map(k=>`<button data-plan="${k}" aria-pressed="${k===st.plan}">${PL[k][0]}</button>`).join('')}</div>
+ <label style="font-weight:400;display:flex;gap:8px;align-items:center;margin-bottom:12px"><input type="checkbox" id="only" style="width:auto;min-height:0"${st.only&&st.sel.length?' checked':''}${st.sel.length?'':' disabled'}>Only use the ${st.sel.length} course${st.sel.length==1?'':'s'} I added to compare</label>`;
+ if(!plan.pick.length)return h+`<div class="card empty"><h3>No courses fit these settings</h3><p class="mute">${plan.pool?'Every matching course needs more than your limit.':'Nothing matches your goal with these filters.'} Try a higher limit, a different format or length, a higher price cap${ids?', or turn off the compare-only option':''}.</p><button class="btn" data-go="prefs">Adjust preferences</button></div>`;
+ return h+`<div class="card"><h2>${PL[st.plan][0]}</h2><p class="mute">${PL[st.plan][1]}</p>${bar(plan,{...p,limit:plan.cap===p.limit?p.limit:p.limit})}
+ <div class="stats"><div><b>${plan.used} / ${p.limit}</b>${u} used</div><div><b>${p.limit-plan.used}</b>${u} remaining</div><div><b>${money(plan.cost)}</b>total cost</div><div><b>${Math.round(plan.avg)}</b>average fit</div></div>
+ ${st.plan==='light'?`<div class="note">This plan stays at or under ${plan.cap} ${u} on purpose.</div>`:''}</div>
+ <div class="grid g2" style="margin-top:16px">${plan.pick.map(i=>`<article class="card"><h3>${esc(i.c.title)}</h3><div class="mute">${esc(i.c.provider)} · ${i.c.weeks} weeks · fit ${Math.round(i.sc.total)}</div><p class="mute" style="margin:8px 0 0">Why it was chosen:</p><ul class="why">${why(i,p).map(x=>`<li>${esc(x)}</li>`).join('')}</ul></article>`).join('')}</div>
+ <div class="stk"><button class="btn" data-act="save">Save plan in this browser</button><button class="btn alt" data-act="copy">Copy shareable summary</button></div><div class="hint" id="msg">Saved plans stay on this device only. There is no account or server.</div>
+ ${saved.length?`<section class="blk"><h2>Saved on this device</h2><div class="grid g2">${saved.map(s=>`<div class="card"><h3>${esc(s.name)}</h3><pre style="white-space:pre-wrap;font:inherit;margin:0 0 10px" class="mute">${esc(s.text)}</pre><div class="stk" style="margin:0"><button class="btn alt sm" data-sc="${s.id}">Copy</button><button class="btn alt sm" data-sd="${s.id}">Delete</button></div></div>`).join('')}</div></section>`:''}`};
+function copyText(t){const ok=()=>say('Summary copied to clipboard.'),fb=()=>{const a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();try{document.execCommand('copy');ok()}catch(e){say('Copy failed. Select the text in a saved plan and copy it manually.')}a.remove()};
+ try{navigator.clipboard.writeText(t).then(ok,fb)}catch(e){fb()}}
+function say(m){const e=$('#msg');if(e)e.textContent=m;$('#live').textContent=m}
+function render(){$('#app').innerHTML=V[st.view]();document.querySelectorAll('nav button').forEach(b=>b.dataset.go===st.view?b.setAttribute('aria-current','page'):b.removeAttribute('aria-current'));
+ $('#nCmp').textContent='Compare'+(st.sel.length?` (${st.sel.length})`:'');if(st.view==='prefs')bindPrefs();if(st.view==='catalog')bindCatalog();const o=$('#only');if(o)o.onchange=e=>{st.only=e.target.checked;render()}}
+function go(v){st.view=v;render();window.scrollTo(0,0);const h=$('#app h1[tabindex]');if(h)h.focus()}
+document.addEventListener('click',e=>{const t=e.target.closest('[data-go],[data-cmp],[data-plan],[data-act],[data-sc],[data-sd]');if(!t)return;const d=t.dataset;
+ if(d.go)return go(d.go);
+ if(d.cmp){const id=+d.cmp;st.sel=st.sel.includes(id)?st.sel.filter(x=>x!==id):[...st.sel,id];persist();if(st.view==='catalog'){const y=scrollY;list();$('#nCmp').textContent='Compare'+(st.sel.length?` (${st.sel.length})`:'');const b=document.querySelector(`[data-cmp="${id}"]`);if(b)b.focus();scrollTo(0,y)}else render();return}
+ if(d.plan){st.plan=d.plan;render();const b=document.querySelector(`[data-plan="${d.plan}"]`);if(b)b.focus();return}
+ if(d.act==='useSel'){st.only=true;return go('plan')}
+ if(d.act==='save'||d.act==='copy'){const p=st.prefs,plan=buildPlan(p,st.plan,st.only&&st.sel.length?st.sel:null),tx=summary(p,plan);
+  if(d.act==='copy')return copyText(tx);saved.unshift({id:Date.now(),name:PL[st.plan][0]+' – '+GOALS[p.goal],text:tx});saved=saved.slice(0,6);persist();render();say('Plan saved in this browser.');return}
+ if(d.sc){const s=saved.find(x=>x.id==d.sc);if(s)copyText(s.text);return}
+ if(d.sd){saved=saved.filter(x=>x.id!=d.sd);persist();render()}});
+render();
+</script></body></html>
